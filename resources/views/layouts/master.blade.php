@@ -8,7 +8,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
+
   <title>airtanah-airbaku</title>
 <meta name="csrf-token" content="{{ csrf_token() }}">
   <link rel="stylesheet" href="/css/app.css">
@@ -85,14 +85,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <router-link to="/balai_progres" class="nav-link">
                   <i class="fas fa-building nav-icon"></i>
                   <p>Balai</p>
-                </a>
+                </router-link>
               </li>
 
               <li class="nav-item">
-                <router-link to="/paket" class="nav-link">
+                <router-link to="/paket_progres" class="nav-link">
                   <i class="nav-icon fas fa-list-alt"></i>
                   <p>Paket</p>
                 </a>
@@ -100,19 +100,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </li>
 
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <router-link to="/at_progres" class="nav-link">
                   <i class="nav-icon fas fa-circle-notch"></i>
                   <p>Air Tanah</p>
-                </a>
+                </router-link>
               </li>
 
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <router-link to="/ab_progres" class="nav-link">
                   <i class="nav-icon fas fa-tint"></i>
                   <p>Air Baku</p>
-                </a>
+                </router-link>
               </li>
-              
+
             </ul>
           </li>
           <li class="nav-item has-treeview">
@@ -125,16 +125,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <router-link to="/balai_db" class="nav-link">
                   <i class="fas fa-building nav-icon"></i>
                   <p>Balai</p>
-                </a>
+                </router-link>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <router-link to="/at_db" class="nav-link">
                   <i class="nav-icon fas fa-circle-notch"></i>
                   <p>Air Tanah</p>
-                </a>
+                </router-link>
               </li>
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
@@ -145,40 +145,47 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
                 <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <router-link to="/sungai_db" class="nav-link">
                   <i class="fas fa-building nav-icon"></i>
                   <p>Sungai</p>
-                </a>
+                </router-link>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <router-link to="/wdse_db" class="nav-link">
                   <i class="fas fa-water nav-icon"></i>
                   <p>Waduk</p>
-                </a>
+                </router-link>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <router-link to="/ma_db" class="nav-link">
                   <i class="fas fa-circle nav-icon"></i>
                   <p>Mata Air</p>
-                </a>
+                </router-link>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <router-link to="/pah_db" class="nav-link">
                   <i class="fas fa-home nav-icon"></i>
                   <p>PAH</p>
-                </a>
+                </router-link>
               </li>
             </ul>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-power-off"></i>
-              <p>
-                Logout
-              </p>
-            </a>
+              <a class="nav-link" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                         document.getElementById('logout-form').submit();">
+                <i class="nav-icon fa fa-power-off"></i>
+                <p>
+                    {{ __('Logout') }}
+                </p>
+              </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+
           </li>
         </ul>
       </nav>
@@ -210,7 +217,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
-        
+
         <router-view ></router-view>
 
       </div><!-- /.container-fluid -->

@@ -8,19 +8,28 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-import VueRouter from 'vue-router'
+import VueRouter from 'vue-router';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 let routes = [
-  { path: '/dashboard', component: require('./components/Dashboard.vue').default },
-  { path: '/paket', component: require('./components/Paket.vue').default }
-]
+	{ path: '/dashboard', component: require('./components/Dashboard.vue').default },
+	{ path: '/balai_progres', component: require('./progres/Balai.vue').default },
+	{ path: '/paket_progres', component: require('./progres/Paket.vue').default },
+	{ path: '/at_progres', component: require('./progres/Airtanah.vue').default },
+	{ path: '/ab_progres', component: require('./progres/Airbaku.vue').default },
+	{ path: '/balai_db', component: require('./database/Balai.vue').default },
+	{ path: '/at_db', component: require('./database/Airtanah.vue').default },
+	{ path: '/sungai_db', component: require('./database/Sungai.vue').default },
+	{ path: '/wdse_db', component: require('./database/Wdse.vue').default },
+	{ path: '/ma_db', component: require('./database/Ma.vue').default },
+	{ path: '/pah_db', component: require('./database/Pah.vue').default }
+];
 
-
- const router = new VueRouter({
- 	routes
- })
+const router = new VueRouter({
+	mode: 'history',
+	routes
+});
 
 /**
  * The following block of code may be used to automatically register your
@@ -42,6 +51,6 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  */
 
 const app = new Vue({
-    el: '#app',
-    router
+	el: '#app',
+	router
 });
