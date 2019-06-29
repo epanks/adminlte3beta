@@ -70,14 +70,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                with font-awesome or any other icon font library -->
           <li class="nav-item">
                 <router-link to="/dashboard" class="nav-link">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <i class="nav-icon fas fa-tachometer-alt blue"></i>
                   <p>Dashboard</p>
                 </a>
               </router-link>
               </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-bar"></i>
+              <i class="nav-icon fas fa-chart-bar green"></i>
               <p>
                 Progres
                 <i class="right fa fa-angle-left"></i>
@@ -117,7 +117,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-database"></i>
+              <i class="nav-icon fa fa-database orange"></i>
               <p>
                 Database
                 <i class="right fa fa-angle-left"></i>
@@ -126,7 +126,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <router-link to="/balai_db" class="nav-link">
-                  <i class="fas fa-building nav-icon"></i>
+                  <i class="fas fa-building nav-icon white"></i>
                   <p>Balai</p>
                 </router-link>
               </li>
@@ -176,7 +176,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <a class="nav-link" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                          document.getElementById('logout-form').submit();">
-                <i class="nav-icon fa fa-power-off"></i>
+                <i class="nav-icon fa fa-power-off red"></i>
                 <p>
                     {{ __('Logout') }}
                 </p>
