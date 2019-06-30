@@ -298,7 +298,7 @@ export default {
         .then(() => {
           // success
           $("#addNew").modal("hide");
-          swal("Updated!", "Information has been updated.", "success");
+          Swal.fire("Updated!", "Information has been updated.", "success");
           this.$Progress.finish();
           Fire.$emit("AfterCreate");
         })
@@ -318,7 +318,7 @@ export default {
       $("#addNew").modal("show");
     },
     deletePaket(id) {
-      swal({
+      Swal.fire({
         title: "Are you sure?",
         text: "You won't be able to revert this!",
         type: "warning",
@@ -328,16 +328,15 @@ export default {
         confirmButtonText: "Yes, delete it!"
       }).then(result => {
         // Send request to the server
-
         if (result.value) {
           this.form
             .delete("api/paket/" + id)
             .then(() => {
-              swal("Deleted!", "Your file has been deleted.", "success");
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
               Fire.$emit("AfterCreate");
             })
             .catch(() => {
-              swal("Failed!", "There was something wronge.", "warning");
+              Swal.fire("Failed!", "There was something wronge.", "warning");
             });
         }
       });
@@ -356,9 +355,9 @@ export default {
           Fire.$emit("AfterCreate");
           $("#addNew").modal("hide");
 
-          toast({
+          Toast.fire({
             type: "success",
-            title: "Paket Created in successfully"
+            title: "Tambah Paket Sukses"
           });
           this.$Progress.finish();
         })

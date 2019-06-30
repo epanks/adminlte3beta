@@ -1,0 +1,14 @@
+Client ID: 1
+Client secret: rh8ntRZL15kgPBsEuENcjghRspPQcqWcfl5kcHVb
+Password grant client created successfully.
+Client ID: 2
+Client secret: 0X5JERN3CXlCTMu4rNRQb54vCVlPH4YwJo9fvonY
+
+
+
+Personal access client created successfully.
+Client ID: 1
+Client secret: 7Kx4Q5Na3LKFpS9g8w8JmlgHPSYj70L9vX1PFxjv
+Password grant client created successfully.
+Client ID: 2
+Client secret: a9N1rnkEFL1mxFVTDlQgXmuYX3rlKOqZTbqnhOnb

@@ -10,18 +10,21 @@ window.Vue = require('vue');
 import moment from 'moment';
 import { Form, HasError, AlertError } from 'vform';
 import vueNumeralFilterInstaller from 'vue-numeral-filter';
+import Gate from './Gate';
 
-import swal from 'sweetalert2';
-window.swal = swal;
+Vue.prototype.$gate = new Gate(window.user);
 
-const toast = swal.mixin({
+import Swal from 'sweetalert2';
+window.Swal = Swal;
+
+const Toast = Swal.mixin({
 	toast: true,
 	position: 'top-end',
 	showConfirmButton: false,
 	timer: 3000
 });
 
-window.toast = toast;
+window.Toast = Toast;
 
 window.Form = Form;
 Vue.component(HasError.name, HasError);
@@ -39,6 +42,9 @@ Vue.use(VueProgressBar, {
 
 let routes = [
 	{ path: '/dashboard', component: require('./components/Dashboard.vue').default },
+	{ path: '/developer', component: require('./components/Developer.vue').default },
+	{ path: '/users', component: require('./components/Users.vue').default },
+	{ path: '/profile', component: require('./components/Profile.vue').default },
 	{ path: '/balai_progres', component: require('./progres/Balai.vue').default },
 	{ path: '/paket_progres', component: require('./progres/Paket.vue').default },
 	{ path: '/at_progres', component: require('./progres/Airtanah.vue').default },
@@ -78,6 +84,11 @@ window.Fire = new Vue();
 
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
+Vue.component('passport-clients', require('./components/passport/Clients.vue').default);
+
+Vue.component('passport-authorized-clients', require('./components/passport/AuthorizedClients.vue').default);
+
+Vue.component('passport-personal-access-tokens', require('./components/passport/PersonalAccessTokens.vue').default);
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
@@ -89,5 +100,17 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
 	el: '#app',
-	router
+	router,
+	data: {
+		search: ''
+	},
+	methods: {
+		searchit: _.debounce(() => {
+			Fire.$emit('searching');
+		}, 1000),
+
+		printme() {
+			window.print();
+		}
+	}
 });

@@ -8,6 +8,11 @@ use App\Paket;
 
 class PaketController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware('auth:api');
+    // }
+
     /**
      * Display a listing of the resource.
      *
@@ -68,7 +73,15 @@ class PaketController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $paket = Paket::findOrFail($id);
+
+        $this->validate($request, [
+            'nmpaket' => 'required|string|max:255'
+
+        ]);
+
+        $paket->update($request->all());
+        return ['message' => 'Updated Paket'];
     }
 
     /**
