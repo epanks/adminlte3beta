@@ -13,6 +13,6 @@ class Paket extends Model
      * @var array
      */
     protected $fillable = [
-        'kdpaket', 'nmpaket', 'pagurmp', 'output', 'satoutput', 'outcome', 'satoutcome', 'kdpengadaan', 'kdjnspaket', 'kdjnskon', 'kdoutput', 'id_progres', 'id_tayang', 'id_kontrak', 'thnanggaran', 'kdsatker', 'id_note', 'id_masalah'
+        'nmpaket', 'pagurmp', 'output', 'satoutput', 'outcome', 'satoutcome', 'kdpengadaan', 'kdjnspaket', 'kdjnskon', 'kdoutput', 'thnanggaran', 'kdsatker', 'id_note'
     ];
 }

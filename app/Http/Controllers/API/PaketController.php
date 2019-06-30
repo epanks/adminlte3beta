@@ -15,8 +15,7 @@ class PaketController extends Controller
      */
     public function index()
     {
-        $paket = Paket::all();
-        return $paket;
+        return Paket::all();
     }
 
     /**
@@ -27,7 +26,26 @@ class PaketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nmpaket' => 'required|string|max:255'
+
+
+        ]);
+        return Paket::create([
+            'nmpaket' => $request['nmpaket'],
+            'pagurmp' => $request['pagurmp'],
+            'output' => $request['output'],
+            'satoutput' => $request['satoutput'],
+            'outcome' => $request['outcome'],
+            'satoutcome' => $request['satoutcome'],
+            'kdpengadaan' => $request['kdpengadaan'],
+            'kdjnspaket' => $request['kdjnspaket'],
+            'kdjnskon' => $request['kdjnskon'],
+            'kdoutput' => $request['kdoutput'],
+            'thnanggaran' => $request['thnanggaran'],
+            'kdsatker' => $request['kdsatker'],
+            'id_note' => $request['id_note']
+        ]);
     }
 
     /**
@@ -61,6 +79,11 @@ class PaketController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $paket = Paket::findOrFail($id);
+        // delete the paket
+
+        $paket->delete();
+
+        return ['message' => 'Paket Deleted'];
     }
 }
