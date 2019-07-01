@@ -17,7 +17,7 @@
         <div class="card card-widget widget-user">
           <!-- Add the bg color to the header using any of the bg-* classes -->
           <div class="widget-user-header text-white" style="background-image:url('./img/18.jpg')">
-            <h3 class="widget-user-username">{{this.form.name | upText}}</h3>
+            <h3 class="widget-user-username">{{this.form.name}}</h3>
             <h5 class="widget-user-desc">{{this.form.type}}</h5>
           </div>
           <div class="widget-user-image">

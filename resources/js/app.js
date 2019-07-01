@@ -30,6 +30,8 @@ window.Form = Form;
 Vue.component(HasError.name, HasError);
 Vue.component(AlertError.name, AlertError);
 
+Vue.component('pagination', require('laravel-vue-pagination'));
+
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
@@ -54,7 +56,8 @@ let routes = [
 	{ path: '/sungai_db', component: require('./database/Sungai.vue').default },
 	{ path: '/wdse_db', component: require('./database/Wdse.vue').default },
 	{ path: '/ma_db', component: require('./database/Ma.vue').default },
-	{ path: '/pah_db', component: require('./database/Pah.vue').default }
+	{ path: '/pah_db', component: require('./database/Pah.vue').default },
+	{ path: '*', component: require('./components/NotFound.vue').default }
 ];
 
 const router = new VueRouter({
@@ -89,6 +92,8 @@ Vue.component('passport-clients', require('./components/passport/Clients.vue').d
 Vue.component('passport-authorized-clients', require('./components/passport/AuthorizedClients.vue').default);
 
 Vue.component('passport-personal-access-tokens', require('./components/passport/PersonalAccessTokens.vue').default);
+
+Vue.component('not-found', require('./components/NotFound.vue').default);
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 

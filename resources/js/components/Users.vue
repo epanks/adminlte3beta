@@ -1,54 +1,55 @@
 <template>
-  <div class="row mt-5" v-if="$gate.isAdminOrAuthor()">
-    <div class="col-md-12">
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Users Table</h3>
+  <div class="container">
+    <div class="row mt-5" v-if="$gate.isAdminOrAuthor()">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Users Table</h3>
 
-          <div class="card-tools">
-            <button class="btn btn-success" @click="newModal">
-              Add New
-              <i class="fas fa-user-plus fa-fw"></i>
-            </button>
+            <div class="card-tools">
+              <button class="btn btn-success" @click="newModal">
+                Add New
+                <i class="fas fa-user-plus fa-fw"></i>
+              </button>
+            </div>
           </div>
-        </div>
-        <!-- /.card-header -->
-        <div class="card-body table-responsive p-0">
-          <table class="table table-hover">
-            <tbody>
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Type</th>
-                <th>Registered At</th>
-                <th>Modify</th>
-              </tr>
+          <!-- /.card-header -->
+          <div class="card-body table-responsive p-0">
+            <table class="table table-hover">
+              <tbody>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Type</th>
+                  <th>Registered At</th>
+                  <th>Modify</th>
+                </tr>
 
-              <tr v-for="user in users.data" :key="user.id">
-                <td>{{user.id}}</td>
-                <td>{{user.name}}</td>
-                <td>{{user.email}}</td>
-                <td>{{user.type | upText}}</td>
-                <td>{{user.created_at | myDate}}</td>
+                <tr v-for="user in users.data" :key="user.id">
+                  <td>{{user.id}}</td>
+                  <td>{{user.name}}</td>
+                  <td>{{user.email}}</td>
+                  <td>{{user.type | upText}}</td>
+                  <td>{{user.created_at | myDate}}</td>
 
-                <td>
-                  <a href="#" @click="editModal(user)">
-                    <i class="fa fa-edit blue"></i>
-                  </a>
-                  /
-                  <a href="#" @click="deleteUser(user.id)">
-                    <i class="fa fa-trash red"></i>
-                  </a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <!-- /.card-body -->
-        <div class="card-footer">
-          <div class="overflow-auto">
-            <!-- <pagination
+                  <td>
+                    <a href="#" @click="editModal(user)">
+                      <i class="fa fa-edit blue"></i>
+                    </a>
+                    /
+                    <a href="#" @click="deleteUser(user.id)">
+                      <i class="fa fa-trash red"></i>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
+          <div class="card-footer">
+            <div class="overflow-auto">
+              <pagination
                 class="mb-0"
                 :data="users"
                 @pagination-change-page="getResults"
@@ -56,24 +57,24 @@
                 :show-disabled="showDisabled"
                 :size="size"
                 :align="align"
-            />-->
+              />
 
-            <!--pagination
+              <!--pagination
                         :data="laravelResourceData"
                         @pagination-change-page="getResourceResults"
                         :limit="limit"
                         :show-disabled="showDisabled"
                         :size="size"
-            :align="align" /-->
+              :align="align" /-->
+            </div>
           </div>
         </div>
+        <!-- /.card -->
       </div>
-      <!-- /.card -->
     </div>
-
-    <!-- <div v-if="!$gate.isAdminOrAuthor()">
+    <div v-if="!$gate.isAdminOrAuthor()">
       <not-found></not-found>
-    </div>-->
+    </div>
     <!-- Modal -->
     <div
       class="modal fade"
